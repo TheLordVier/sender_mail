@@ -3,7 +3,11 @@
         "comment": "Example JSON file with mail addresses"
     },
     "data": {
-        "mail_1": "xaviniesta1991@mail.ru",
-        "mail_2": "ibrahimovic1991@yandex.ru"
+        "mail_1": "xaviniesta@mail.ru",
+        "mail_2": "ibrahimovic@yandex.ru",
+        "mail_3": "tom_brady@gmail.com",
+        "mail_4": "semin_ivan@mail.ru",
+        "mail_5": "sam_altman@gmail.com",
+        "mail_6": "a.ivanov@mail.ru"
     }
 }
