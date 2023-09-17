@@ -5,27 +5,29 @@ from email.mime.multipart import MIMEMultipart
 
 def send_email(smtp_server, smtp_port, username, password, to_address, subject, message):
     try:
-        # Создаем объект MIMEText для текстового письма
+        # Create a MIMEText object for the plain text message
         msg = MIMEMultipart()
         msg['From'] = username
         msg['To'] = to_address
         msg['Subject'] = subject
 
-        # Добавляем текстовое сообщение
+        # Attach the plain text message
         msg.attach(MIMEText(message, 'plain'))
 
-        # Устанавливаем соединение с SMTP-сервером
+        # Establish a connection with the SMTP server
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
         server.login(username, password)
 
-        # Отправляем письмо
+        # Send the email
         server.sendmail(username, to_address, msg.as_string())
 
-        # Закрываем соединение
+        # Close the connection
         server.quit()
 
+        # Return success and a message indicating the email was sent
         return True, f'Email sent to {to_address} with subject: {subject}'
 
     except Exception as e:
+        # Return failure and an error message if sending fails
         return False, f'Failed to send email to {to_address}. Error: {str(e)}'
