@@ -1,4 +1,5 @@
 import unittest
+import os
 from mail_utils import send_email
 
 
