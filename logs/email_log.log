@@ -1,0 +1,15 @@
+ERROR:root:Failed to send email to xaviniesta@mail.ru. Error: (535, b'5.7.0 NEOBHODIM parol prilozheniya https://help.mail.ru/mail/security/protection/external / Application password is REQUIRED')
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо для отправки
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to ibrahimovic@yandex.ru with subject: Тестовое письмо
+INFO:root:Email sent to xaviniesta@mail.ru with subject: Тестовое письмо
+INFO:root:Email sent to ibrahimovic@yandex.ru with subject: Тестовое письмо
