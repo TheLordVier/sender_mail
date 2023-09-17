@@ -1,0 +1,9 @@
+{
+    "_comments": {
+        "comment": "Example JSON file with mail addresses"
+    },
+    "data": {
+        "mail_1": "xaviniesta1991@mail.ru",
+        "mail_2": "ibrahimovic1991@yandex.ru"
+    }
+}
