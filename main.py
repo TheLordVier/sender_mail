@@ -250,7 +250,7 @@ if __name__ == '__main__':
 
     # Пример использования: отправка писем каждому адресату
     for key, email in data['data'].items():
-        subject = 'Тестовое письмо'
+        subject = 'Test send'
         message = 'Привет, это тестовое письмо с помощью Python и smtplib.'
         success, message = send_email(smtp_server, smtp_port, username, password, email, subject, message)
         if success:
