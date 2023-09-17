@@ -6,21 +6,21 @@ from mail_utils import send_email
 
 
 if __name__ == '__main__':
-    # Путь к файлу логов
+    # Path to the log file
     log_file_path = os.path.join('logs', 'email_log.log')
 
-    # Настройка логирования
+    # Setup logging
     setup_logging(log_file_path)
 
-    # Загрузка данных из JSON файла
+    # Load data from the JSON file
     json_file_path = os.path.join('data', 'list_mail.json')
     with open(json_file_path, 'r') as json_file:
         data = json.load(json_file)
 
-    # Пример использования: отправка писем каждому адресату
+    # Example usage: sending emails to each recipient
     for key, email in data['data'].items():
         subject = 'Test send'
-        message = 'Привет, это тестовое письмо с помощью Python и smtplib.'
+        message = 'Hello, this is a test email using Python and smtplib!'
         success, message = send_email(smtp_server, smtp_port, username, password, email, subject, message)
         if success:
             log_info(message)
