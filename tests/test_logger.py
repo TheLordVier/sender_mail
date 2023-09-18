@@ -1,20 +1,30 @@
 import unittest
-import os
-from logger import log_info, log_error
+from logger import setup_logging, log_info, log_error
 
 
-class TestLogger(unittest.TestCase):
+class TestLogging(unittest.TestCase):
+
     def test_log_info(self):
-        log_info('This is a test info log message')
+        log_file_path = 'logs/test.log'
+        setup_logging(log_file_path)
 
-        # Check if the log file was created
-        self.assertTrue(os.path.exists('logs/email_log.log'))
+        message = 'This is an info message.'
+        log_info(message)
+
+        with open(log_file_path, 'r') as log_file:
+            logs = log_file.read()
+            self.assertTrue(message in logs)
 
     def test_log_error(self):
-        log_error('This is a test error log message')
+        log_file_path = 'logs/test.log'
+        setup_logging(log_file_path)
 
-        # Check if the log file was created
-        self.assertTrue(os.path.exists('logs/email_log.log'))
+        message = 'This is an error message.'
+        log_error(message)
+
+        with open(log_file_path, 'r') as log_file:
+            logs = log_file.read()
+            self.assertTrue(message in logs)
 
 
 if __name__ == '__main__':

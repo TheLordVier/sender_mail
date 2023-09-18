@@ -1,24 +1,42 @@
 import unittest
-import os
+from unittest.mock import patch
 from mail_utils import send_email
 
 
-class TestEmailUtils(unittest.TestCase):
-    def test_send_email(self):
-        # Replace with your test data
-        smtp_server = 'smtp.example.com'
-        smtp_port = 587
-        username = 'test@example.com'
-        password = 'password'
-        to_address = 'recipient@example.com'
-        subject = 'Test Subject'
-        message = 'Test Message'
+class TestSendEmail(unittest.TestCase):
 
-        success, response = send_email(smtp_server, smtp_port, username, password, to_address, subject, message)
+    @patch('mail_utils.smtplib.SMTP')
+    def test_send_email_success(self, mock_smtp):
+        # Set up mocks
+        mock_smtp_instance = mock_smtp.return_value
+        mock_smtp_instance.starttls.return_value = None
+        mock_smtp_instance.login.return_value = None
+        mock_smtp_instance.sendmail.return_value = None
+        mock_smtp_instance.quit.return_value = None
 
-        # Assert that email was sent successfully
+        # Call the function
+        success, message = send_email('smtp.example.com', 587, 'username', 'password',
+                                      'to@example.com', 'Test Subject', 'Test Message')
+
+        # Assertions
         self.assertTrue(success)
-        self.assertIn('Email sent to', response)
+        self.assertEqual(message, 'Email sent to to@example.com with subject: Test Subject')
+
+    @patch('mail_utils.smtplib.SMTP')
+    def test_send_email_failure(self, mock_smtp):
+        # Set up mocks to raise an exception
+        mock_smtp_instance = mock_smtp.return_value
+        mock_smtp_instance.starttls.return_value = None
+        mock_smtp_instance.login.return_value = None
+        mock_smtp_instance.sendmail.side_effect = Exception('Mocked exception')
+
+        # Call the function
+        success, message = send_email('smtp.example.com', 587, 'username', 'password',
+                                      'to@example.com', 'Test Subject', 'Test Message')
+
+        # Assertions
+        self.assertFalse(success)
+        self.assertIn('Failed to send email to to@example.com.', message)
 
 
 if __name__ == '__main__':
